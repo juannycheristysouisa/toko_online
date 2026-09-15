@@ -1,4 +1,4 @@
-<body class="bg-gradient-primary">
+<body class="bg-gradient-info">
 
     <div class="container">
 
@@ -33,11 +33,11 @@
                                         <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Ulangi Password" name="password_2">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>
+                                <button type="submit" class="btn btn-info btn-user btn-block">Daftar</button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="<?php echo base_url('auth/login') ?>">Sudah Punya Akun? Silahkan Login!</a>
+                                <a class="small text-gray-900 " href="<?php echo base_url('auth/login') ?>">Sudah Punya Akun? Silahkan Login!</a>
                             </div>
                         </div>
                     </div>

@@ -35,15 +35,15 @@
                             <tr>
                                 <td>Harga</td>
                                 <td><strong>
-                                        <div class="btn btn-sm btn-success">Rp. <?php echo number_format($brg->harga, 0, ',', '.')  ?></div>
+                                        <div class="btn btn-sm btn-info">Rp. <?php echo number_format($brg->harga, 0, ',', '.')  ?></div>
                                     </strong></td>
                             </tr>
                         </table>
 
-                        <?php echo anchor('dashboard/tambah_ke_keranjang/' . $brg->id_brg, '<div class="btn btn-sm btn-primary">
+                        <?php echo anchor('dashboard/tambah_ke_keranjang/' . $brg->id_brg, '<div class="btn btn-sm btn-info"><i class=" fas fa-shopping-cart fa-sm"></i>
                         Tambah ke Keranjang</div>') ?>
 
-                        <?php echo anchor('dashboard/index/', '<div class="btn btn-sm btn-danger">
+                        <?php echo anchor('dashboard/index', '<div class="btn btn-sm btn-warning"><i class=" fas fa-reply fa-sm"></i>
                         Kembali</div>') ?>
                     </div>
 

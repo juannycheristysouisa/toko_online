@@ -8,6 +8,7 @@
             <th>Jumlah</th>
             <th>Harga</th>
             <th>Sub-Total</th>
+
         </tr>
 
         <?php
@@ -38,10 +39,9 @@
             <div class="btn btn-sm btn-danger">Hapus Keranjang</div>
         </a>
         <a href="<?php echo base_url('welcome/index')  ?>">
-            <div class="btn btn-sm btn-primary">Lanjutkan Belanja</div>
+            <div class="btn btn-sm btn-info">Lanjutkan Belanja</div>
             <a href="<?php echo base_url('dashboard/pembayaran')  ?>">
                 <div class="btn btn-sm btn-success">Pembayaran</div>
             </a>
-        </a>
     </div>
 </div>

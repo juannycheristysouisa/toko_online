@@ -4,14 +4,15 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-store"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">TOKO ONLINE</div>
+                <span>FAMILY FURNITURE</span>
+            </a>
             </a>
 
             <!-- Divider -->
@@ -20,7 +21,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('dashboard/index')  ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -28,9 +29,10 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                KATEGORI
-            </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="">
+                    <span>KATEGORI</span></a>
+            </li>
 
 
             <!-- Nav Item - Tables -->
@@ -92,71 +94,48 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-info d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form action="<?php echo base_url('kategori/search'); ?>" method="get" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Cari nama barang..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-info" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
                         </div>
                     </form>
 
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="color: turquoise;">
+                                <?php
+                                $keranjang = "<i class='fas fa-shopping-cart fa-sm' style='color:rgb(39, 179, 203);'></i>" . $this->cart->total_items()   . "<span style='color: rgb(39, 179, 203);'> items</span>";
+                                ?>
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
+                                <?php echo anchor('dashboard/detail_keranjang', $keranjang) ?>
+                            </li>
+                        </ul>
 
-                        <div class="navbar">
-                            <ul class="nav navbar-nav navbar-right">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <ul class="na navbar-nav navbar-right">
+                            <?php if ($this->session->userdata('username')) { ?>
                                 <li>
-                                    <?php
-                                    $keranjang = 'Keranjang Belanja: ' . $this->cart->total_items() . 'items'
-                                    ?>
-
-                                    <?php echo anchor('dashboard/detail_keranjang', $keranjang) ?>
+                                    <div style="color: rgb(39, 179, 203);">Selamat Datang <?php echo $this->session->userdata('username') ?></div>
                                 </li>
-                            </ul>
+                                <li class="ml-2"><?php echo anchor('auth/logout', '<span style="color: rgb(39, 179, 203);">Logout</span>') ?></li>
+                            <?php } else { ?>
+                                <li><?php echo anchor('auth/login', '<span style="color: rgb(39, 179, 203);">Login</span>'); ?></li>
 
-                            <div class="topbar-divider d-none d-sm-block"></div>
+                            <?php } ?>
+                        </ul>
 
-                            <ul class="na navbar-nav navbar-right">
-                                <?php if ($this->session->userdata('username')) { ?>
-                                    <li>
-                                        <div>Selamat Datang <?php echo $this->session->userdata('username') ?></div>
-                                    </li>
-                                    <li class="ml-2"><?php echo anchor('auth/logout', 'Logout') ?></li>
-                                <?php } else { ?>
-                                    <li><?php echo anchor('auth/login', 'Login'); ?></li>
-
-                                <?php } ?>
-                            </ul>
-
-                        </div>
+                    </div>
                     </ul>
 
                 </nav>

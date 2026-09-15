@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h4>Detail Pesanan <div class="btn btn-sm btn-success">No. Invoice: <?php echo $invoice->id ?></div>
+    <h4>Detail Pesanan <div class="btn btn-sm btn-warning">No. Invoice: <?php echo $invoice->id ?></div>
     </h4>
 
     <table class="table table-bordered table-hover table-striped">
@@ -35,8 +35,6 @@
         </tr>
 
     </table>
-
-    <a href="<?php echo base_url('admin/invoice/index')  ?>">
-        <div class="btn btn-sm btn-primary">Kembali</div>
-    </a>
+    <a href="<?= base_url('admin/dashboard_admin/exportToPdf_detail/' . $invoice->id); ?>" class="btn btn-warning mb-3"><i class="far fa-file-pdf"></i>PDF</a>
+    <a href="<?= base_url('admin/laporan_invoice/index'); ?>" class="btn btn-dark mb-3"><i class=" fas fa-reply fa-sm"></i>Kembali</a>
 </div>
